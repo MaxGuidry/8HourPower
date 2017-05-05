@@ -8,6 +8,8 @@ TagManager:
   - Stage 2
   - Stage 3
   - Stage 4
+  - Question
+  - TrueForm
   layers:
   - Default
   - TransparentFX

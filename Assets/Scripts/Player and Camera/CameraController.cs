@@ -19,8 +19,8 @@ public class CameraController : MonoBehaviour {
         prevMouse = currentMouse;
         currentMouse = Input.mousePosition;
         Vector3 dif = currentMouse - prevMouse;
-        Quaternion combineRot = new Quaternion(0, Mathf.Sin(((dif.x / 150f) + ((originRot.eulerAngles.y * Mathf.PI) / 180f)) / 2), 0, Mathf.Cos(((dif.x / 150f) + ((originRot.eulerAngles.y * Mathf.PI) / 180f)) / 2))
-            * new Quaternion(Mathf.Sin((-(dif.y / 150f) + ((originRot.eulerAngles.x * Mathf.PI) / 180f)) / 2),0,0, Mathf.Cos((-(dif.y / 150f) + ((originRot.eulerAngles.x * Mathf.PI) / 180f)) / 2));
+        Quaternion combineRot = new Quaternion(0, Mathf.Sin(((dif.x / 250f) + ((originRot.eulerAngles.y * Mathf.PI) / 180f)) / 2), 0, Mathf.Cos(((dif.x / 250f) + ((originRot.eulerAngles.y * Mathf.PI) / 180f)) / 2))
+            * new Quaternion(Mathf.Sin((-(dif.y / 250f) + ((originRot.eulerAngles.x * Mathf.PI) / 180f)) / 2),0,0, Mathf.Cos((-(dif.y / 250f) + ((originRot.eulerAngles.x * Mathf.PI) / 180f)) / 2));
         this.transform.rotation = this.transform.rotation * combineRot;
         
         this.transform.position = new Vector3(toFollow.transform.position.x,toFollow.transform.position.y ,toFollow.transform.position.z);

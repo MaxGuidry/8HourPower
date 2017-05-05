@@ -11,9 +11,11 @@ public class PlayerController : MonoBehaviour
     private int prevSkettiCount;
     [HideInInspector]
     public int stage;
+    private float jumpTimer;
     // Use this for initialization
     void Start()
     {
+        jumpTimer = 1;
         skettiCount = 0;
         stage = 0;
         camera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -33,9 +35,14 @@ public class PlayerController : MonoBehaviour
             this.transform.position -= (.1f * new Vector3(camera.transform.right.x, 0, camera.transform.right.z));
         if (Input.GetKey(KeyCode.D))
             this.transform.position += (.1f * new Vector3(camera.transform.right.x, 0, camera.transform.right.z));
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && jumpTimer < .5f)
+        {
             this.GetComponent<Rigidbody>().AddForce(new Vector3(0, 300, 0));
-
+            jumpTimer = 1f;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+        jumpTimer -= Time.deltaTime;
     }
     void LateUpdate()
     {

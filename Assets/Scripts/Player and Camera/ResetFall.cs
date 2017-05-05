@@ -17,7 +17,7 @@ public class ResetFall : MonoBehaviour
         pfc.numberOfFalls++;
         deathCounter.gameObject.SetActive(true);
         deathCounter.text = "You have fallen: " + pfc.numberOfFalls + " times.";
-        var test = GameObject.FindGameObjectWithTag("Stage 1");
+        var test = GameObject.FindGameObjectWithTag(stages[other.gameObject.GetComponent<PlayerController>().stage].tag);
         Debug.Log(test.name);
         GameObject.Destroy(test);
         GameObject.Instantiate(stages[other.gameObject.GetComponent<PlayerController>().stage]);
